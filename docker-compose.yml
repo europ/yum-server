@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+
+  yum:
+    container_name: yum
+    build:
+      dockerfile: ./docker/yum/Dockerfile
+      context: .
+    volumes:
+      - ./yum/packages:/yum
+    restart: always
+
+  nginx:
+    container_name: nginx
+    build:
+      dockerfile: ./docker/nginx/Dockerfile
+      context: .
+    restart: always
+    ports:
+      - 80:80
+      - 443:443

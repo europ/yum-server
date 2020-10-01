@@ -1,0 +1,5 @@
+[Repository]
+name=Yum Repository
+baseurl=file:///yum
+enabled=1
+gpgcheck=0
