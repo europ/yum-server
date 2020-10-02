@@ -22,7 +22,7 @@ Instructions how to host this multicontainer application on a server with a spec
 #### Instructions
 
 1. add your desired packages (RPM files) to `yum/packages/`
-1. add your SSL certificate files to `nginx/conf.d/`
+1. add your SSL certificate files to `nginx/certs/`
     * add your CRT file as `repository.crt`(`nginx/certs/repository.crt`)
     * add your KEY file as `repository.key`(`nginx/certs/repository.key`)
 1. build the application via `docker-compose build`
