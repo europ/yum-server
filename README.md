@@ -27,3 +27,28 @@ Instructions how to host this multicontainer application on a server with a spec
     * add your KEY file as `repository.key`(`nginx/certs/repository.key`)
 1. build the application via `docker-compose build`
 1. start the application via `docker-compose up -d`
+
+## Customization
+
+#### Enable HTTP
+
+Note that using HTTP is **not** secure!
+
+To enable HTTP change the HTTP part in `nginx/conf.d/repository.conf` file to:
+
+```
+# HTTP
+server {
+    listen 80;
+    listen [::]:80;
+
+    # this is the internal Docker DNS, cache only for 30s
+    resolver 127.0.0.11 valid=30s;
+
+    location / {
+        set $upstream http://yum:80;
+        proxy_pass $upstream;
+        proxy_set_header Host $host;
+    }
+}
+```
