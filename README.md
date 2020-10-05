@@ -30,6 +30,10 @@ Instructions how to host this multicontainer application on a server with a spec
 
 ## Customization
 
+#### Repository
+
+Edit the `yum/repository.repo` file to change the name and ID of the repository to yours.
+
 #### Enable HTTP
 
 Note that using HTTP is **not** secure!
